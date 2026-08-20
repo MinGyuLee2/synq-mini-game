@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="회의 속 선택으로 나의 커뮤니케이션 성향을 알아보는 SynQ 미니게임" />
+    <meta name="theme-color" content="#e9edf8" />
+    <title>회의에서 살아남기 | SynQ</title>
+    <link rel="stylesheet" href="./style.css?v=20260820-7" />
+  </head>
+  <body>
+    <main class="game" id="game">
+      <button class="sound-toggle" id="sound-toggle" type="button" data-action="toggle-sound" aria-pressed="true" aria-label="효과음 끄기">
+        <span class="sound-toggle__mark" aria-hidden="true">♪</span>
+        <span class="sound-toggle__label sr-only">효과음 켜짐</span>
+      </button>
+      <section class="screen screen--start is-active" data-screen="start" aria-labelledby="start-title">
+        <img class="figma-frame" src="./assets/figma-clean/000.png" alt="" />
+        <img class="intro-content-art" src="./assets/figma/intro-ui.svg" alt="" aria-hidden="true" />
+        <h1 class="sr-only" id="start-title">당신이라면 이 회의에서 어떻게 말하시겠어요?</h1>
+        <button class="frame-hotspot frame-hotspot--start art-button" type="button" data-action="start"><img class="button-art" src="./assets/figma-2x/button-start.svg" alt="" aria-hidden="true" /><span>게임 시작</span></button>
+      </section>
+
+      <section class="screen screen--role" data-screen="role" aria-labelledby="role-title" hidden>
+        <img class="figma-frame" src="./assets/figma-clean/001.png" alt="" />
+        <img class="role-heading-art" src="./assets/figma/role-heading.svg" alt="" aria-hidden="true" />
+        <h1 class="sr-only" id="role-title">어떤 역할로 회의에 참여하시나요?</h1>
+        <button class="frame-hotspot frame-hotspot--home" type="button" data-action="reset" aria-label="홈으로 돌아가기"><span>홈으로 돌아가기</span></button>
+        <div class="role-grid">
+          <button class="role-card art-button" type="button" data-role="planning"><img class="role-card-art" src="./assets/figma-2x/card-planning.svg" alt="" aria-hidden="true" /><span>기획 / 운영 역할 선택</span></button>
+          <button class="role-card art-button" type="button" data-role="design"><img class="role-card-art" src="./assets/figma-2x/card-design.svg" alt="" aria-hidden="true" /><span>디자인 / 콘텐츠 역할 선택</span></button>
+          <button class="role-card art-button" type="button" data-role="development"><img class="role-card-art" src="./assets/figma-2x/card-development.svg" alt="" aria-hidden="true" /><span>개발 / 기술 역할 선택</span></button>
+        </div>
+      </section>
+
+      <section class="screen screen--meeting" data-screen="briefing" hidden>
+        <img class="figma-frame" id="briefing-art" src="./assets/figma-clean/002-a.png" alt="" />
+        <button class="frame-hotspot frame-hotspot--home" type="button" data-action="reset" aria-label="홈으로 돌아가기"><span>홈으로 돌아가기</span></button>
+        <article class="sr-only">
+          <p class="mission-label" id="mission-label"></p>
+          <h1 id="briefing-title"></h1>
+          <dl class="briefing-facts">
+            <div><dt>역할</dt><dd id="briefing-role"></dd></div>
+            <div><dt>상황</dt><dd id="briefing-situation"></dd></div>
+          </dl>
+        </article>
+        <button class="frame-hotspot frame-hotspot--begin art-button" type="button" data-action="begin"><img class="button-art" src="./assets/figma-2x/button-meeting.svg" alt="" aria-hidden="true" /><span>회의 시작</span></button>
+      </section>
+
+      <section class="screen screen--meeting" data-screen="question" aria-labelledby="question-heading" hidden>
+        <img class="figma-frame" id="question-art" src="./assets/figma-2x/003-a.png" alt="" />
+        <img class="question-avatar-svg" id="question-avatar-svg" src="./assets/figma-2x/avatar-sales.svg" alt="" aria-hidden="true" />
+        <img class="question-avatar-svg" id="question-avatar-secondary-svg" src="./assets/figma-2x/avatar-developer.svg" alt="" aria-hidden="true" />
+        <img class="question-avatar-svg" id="question-avatar-tertiary-svg" src="./assets/figma-2x/avatar-developer.svg" alt="" aria-hidden="true" />
+        <button class="frame-hotspot frame-hotspot--home" type="button" data-action="reset" aria-label="홈으로 돌아가기"><span>홈으로 돌아가기</span></button>
+        <article class="sr-only">
+          <header class="question-header"><p id="question-heading"></p><strong id="question-count"></strong></header>
+          <div class="chat" id="chat"></div>
+        </article>
+        <div class="answer-list" id="answer-list"></div>
+        <p class="sr-only" id="question-live" aria-live="assertive"></p>
+      </section>
+
+      <section class="screen screen--result" data-screen="result" aria-labelledby="result-name" hidden>
+        <div class="ambient ambient--one">▱</div><div class="ambient ambient--two">□</div><div class="ambient ambient--three">⚠</div>
+        <img class="figma-frame result-art" id="result-art" src="./assets/figma-clean/006-d.png" alt="" hidden />
+        <div class="result-celebration" id="result-celebration" aria-hidden="true" hidden></div>
+        <article class="meeting-card result-card">
+          <div class="result-topline"><span>🎉 MISSION CLEAR</span><span>RESULT</span></div>
+          <div class="result-main">
+            <div class="result-copy">
+              <p>당신은</p>
+              <h1><span id="result-icon"></span> <strong id="result-name"></strong></h1>
+              <p class="result-tagline" id="result-tagline"></p>
+            </div>
+            <div class="trait-chart" id="trait-chart" aria-label="회의 성향 그래프"></div>
+          </div>
+          <div class="result-columns">
+            <section class="result-note result-note--good"><h2>GOOD | 이런 점이 강점이에요</h2><p id="result-good"></p></section>
+            <section class="result-note result-note--watch"><h2>Watch Out | 회의에서 놓치기 쉬운 부분</h2><p id="result-watch"></p></section>
+          </div>
+          <section class="synq-note"><h2>이럴 때 SynQ가 도와줄 수 있어요</h2><p id="result-help"></p></section>
+        </article>
+        <button class="next-button" type="button" data-action="hint" aria-label="SynQ 힌트 보기">▶</button>
+      </section>
+
+      <section class="screen screen--hint" data-screen="hint" aria-labelledby="hint-title" hidden>
+        <img class="figma-frame" id="hint-art" src="./assets/figma-clean/007-d.png" alt="" />
+        <img class="hint-avatar-svg" id="hint-avatar-svg" alt="" aria-hidden="true" hidden />
+        <article class="sr-only">
+          <header class="hint-header">
+            <div><p>SynQ Hint Preview</p><h1 id="hint-title">SynQ는 회의 중,<br />이렇게 도울 수 있어요.</h1></div>
+          </header>
+          <div class="hint-quote"><span id="hint-speaker-icon"></span><strong id="hint-speaker"></strong><p id="hint-quote"></p></div>
+          <div class="hint-detail">
+            <p><b>의미</b><span id="hint-meaning"></span></p>
+            <p><b>내 영향</b><span id="hint-impact"></span></p>
+            <p><b>팀 질문</b><strong id="hint-question"></strong></p>
+          </div>
+        </article>
+        <div class="hint-hotspots" role="tablist" aria-label="역할별 힌트">
+          <button type="button" role="tab" data-hint-role="planning"><span>기획/운영</span></button>
+          <button type="button" role="tab" data-hint-role="design"><span>디자인/콘텐츠</span></button>
+          <button type="button" role="tab" data-hint-role="development"><span>개발/기술</span></button>
+        </div>
+        <button class="prev-button" type="button" data-action="result" aria-label="이전">◀</button>
+        <button class="next-button" type="button" data-action="cta" aria-label="다음">▶</button>
+      </section>
+
+      <section class="screen screen--cta" data-screen="cta" aria-labelledby="cta-title" hidden>
+        <img class="figma-frame" src="./assets/figma-clean/008.png" alt="같은 회의를, 각자의 업무 언어로. SynQ는 회의 중 중요한 발화를 내 역할과 프로젝트 맥락에 맞춰 이해하도록 도와줍니다." />
+        <h1 class="sr-only" id="cta-title">같은 회의를, 각자의 업무 언어로.</h1>
+        <button class="frame-hotspot frame-hotspot--experience art-button" type="button" data-action="experience"><img class="button-art" src="./assets/figma-2x/button-experience.svg" alt="" aria-hidden="true" /><span>SynQ 체험하기</span></button>
+        <p class="experience-notice" id="experience-notice" role="status"></p>
+        <button class="prev-button" type="button" data-action="hint" aria-label="이전">◀</button>
+      </section>
+    </main>
+    <script src="./assets/lottie.min.js"></script>
+    <script src="./app.js?v=20260820-7"></script>
+  </body>
+</html>

@@ -1,0 +1,24 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="440.377" height="66.6667" viewBox="0 0 440.377 66.6667" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="START GAME" filter="url(#filter0_i_0_11)">
+<path d="M6.66667 6.66667V0H33.3333V13.3333H13.3333V26.6667H26.6667V33.3333H33.3333V60H26.6667V66.6667H0V53.3333H20V40H6.66667V33.3333H0V6.66667H6.66667Z" fill="white"/>
+<path d="M80.8 0V13.3333H67.4667V66.6667H54.1333V13.3333H40.8V0H80.8Z" fill="white"/>
+<path d="M94.9073 6.66667V0H121.574V6.66667H128.241V66.6667H114.907V46.6667H101.574V66.6667H88.2406V6.66667H94.9073ZM101.574 13.3333V33.3333H114.907V13.3333H101.574Z" fill="white"/>
+<path d="M169.015 0V6.66667H175.681V33.3333H169.015V46.6667H175.681V66.6667H162.348V46.6667H149.015V66.6667H135.681V0H169.015ZM162.348 13.3333H149.015V33.3333H162.348V13.3333Z" fill="white"/>
+<path d="M223.122 0V13.3333H209.789V66.6667H196.455V13.3333H183.122V0H223.122Z" fill="white"/>
+<path d="M264.67 6.66667V0H298.003V13.3333H271.336V53.3333H284.67V26.6667H298.003V66.6667H264.67V60H258.003V6.66667H264.67Z" fill="white"/>
+<path d="M312.11 6.66667V0H338.777V6.66667H345.444V66.6667H332.11V46.6667H318.777V66.6667H305.444V6.66667H312.11ZM318.777 13.3333V33.3333H332.11V13.3333H318.777Z" fill="white"/>
+<path d="M366.218 0V6.66667H372.884V13.3333H379.551V6.66667H386.218V0H399.551V66.6667H386.218V26.6667H379.551V33.3333H372.884V26.6667H366.218V66.6667H352.884V0H366.218Z" fill="white"/>
+<path d="M440.377 13.3333H420.377V26.6667H440.377V40H420.377V53.3333H440.377V66.6667H407.044V0H440.377V13.3333Z" fill="white"/>
+</g>
+<defs>
+<filter id="filter0_i_0_11" x="0" y="0" width="440.377" height="66.6667" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dx="-5" dy="-5"/>
+<feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0.619608 0 0 0 0 0.835294 0 0 0 0 1 0 0 0 1 0"/>
+<feBlend mode="normal" in2="shape" result="effect1_innerShadow_0_11"/>
+</filter>
+</defs>
+</svg>
