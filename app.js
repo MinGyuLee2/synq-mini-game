@@ -285,7 +285,13 @@ function classify([verification, question, drive, alignment]) {
 function renderResult() {
   const resultKey = classify(state.scores);
   const result = results[resultKey];
-  const resultFrame = { confirm: "006-d", drive: "006-e", risk: "006-f" }[resultKey];
+  const resultFrame = {
+    confirm: "006-d",
+    drive: "006-e",
+    risk: "006-f",
+    alignment: "006-g",
+    proposal: "006-h",
+  }[resultKey];
   const resultScreen = document.querySelector('[data-screen="result"]');
   const resultArt = document.getElementById("result-art");
   const resultCard = resultScreen.querySelector(".result-card");
@@ -360,16 +366,13 @@ document.addEventListener("click", (event) => {
     state.locked = true;
     const selected = scenarios[state.role].questions[state.question].answers[Number(answer)];
     selected.score.forEach((score, index) => { state.scores[index] += score; });
-    document.querySelectorAll("[data-answer]").forEach((button) => { button.disabled = true; });
-    window.setTimeout(() => {
-      state.question += 1;
-      state.locked = false;
-      if (state.question < 3) renderQuestion(); else {
-        const resultKey = renderResult();
-        show("result");
-        playResultCelebration(resultKey);
-      }
-    }, 160);
+    state.question += 1;
+    state.locked = false;
+    if (state.question < 3) renderQuestion(); else {
+      const resultKey = renderResult();
+      show("result");
+      playResultCelebration(resultKey);
+    }
   }
   if (action === "result") show("result");
   if (action === "hint") { renderHint(); show("hint"); }
@@ -386,6 +389,6 @@ updateSoundToggle();
 if (typeof Image !== "undefined") {
   ["003-a", "003-b", "003-c", "004-a", "004-b", "004-c", "005-a", "005-b", "005-c"]
     .forEach((name) => { const image = new Image(); image.src = `./assets/figma-2x/${name}.png`; });
-  ["000", "001", "002-a", "002-b", "002-c", "006-d", "006-e", "006-f", "007-d", "007-e", "007-f", "008"]
+  ["000", "001", "002-a", "002-b", "002-c", "006-d", "006-e", "006-f", "006-g", "006-h", "007-d", "007-e", "007-f", "008"]
     .forEach((name) => { const image = new Image(); image.src = `./assets/figma-clean/${name}.png`; });
 }

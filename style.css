@@ -102,7 +102,7 @@ button,a { color:inherit; font:inherit; }
 .hint-hotspots button:hover { background:#078cf20d; }
 .hint-hotspots button:focus-visible { outline:4px solid #00aeff; outline-offset:-4px; background:#078cf21a; }
 .hint-hotspots span { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
-[data-screen="question"] .answer-list { top:67.2%; right:15.4%; left:15.4%; gap:1.25vw; }
+[data-screen="question"] .answer-list { top:66%; right:15.4%; left:15.4%; gap:1.25vw; }
 [data-screen="question"] .answer-button { min-height:clamp(44px,7.5vw,108px); border:0; padding:0; color:transparent; background:transparent; box-shadow:none; clip-path:polygon(2% 0,98% 0,100% 22%,100% 78%,98% 100%,2% 100%,0 78%,0 22%); }
 [data-screen="question"] .answer-button b,[data-screen="question"] .answer-button span { opacity:0; }
 [data-screen="question"] .answer-button:hover { transform:none; background:#078cf20d; }
@@ -194,16 +194,16 @@ button.is-clicked:not(:disabled) { animation:button-click .16s ease-out; }
 
 /* Answers use a neutral overlay so the baked pixel-frame remains visually intact. */
 [data-screen="question"] .answer-button:not(:disabled):hover {
-  transform:translateY(-1px) scale(1.004);
+  transform:none;
   background:rgba(44,52,66,.105);
-  box-shadow:inset 0 -3px 0 rgba(18,29,48,.08),0 5px 12px rgba(18,29,48,.10);
+  box-shadow:inset 0 0 0 3px rgba(18,29,48,.10),inset 0 -3px 0 rgba(18,29,48,.08);
   filter:none;
 }
 [data-screen="question"] .answer-button:not(:disabled):active,
 [data-screen="question"] .answer-button.is-clicked {
-  transform:translateY(2px) scale(.996);
+  transform:none;
   background:rgba(39,47,61,.17);
-  box-shadow:inset 0 3px 0 rgba(17,27,43,.12),0 1px 3px rgba(17,27,43,.08);
+  box-shadow:inset 0 0 0 3px rgba(17,27,43,.14),inset 0 3px 0 rgba(17,27,43,.12);
   filter:brightness(.985);
   animation:none!important;
 }
@@ -229,40 +229,42 @@ button.is-clicked:not(:disabled) { animation:button-click .16s ease-out; }
   animation:start-background-scroll 32s linear infinite;
 }
 
-/* Previous controls use a compact pixel-button surface over the baked label area. */
+/* Previous controls remain plain text so they do not add a box over the baked artwork. */
 .frame-hotspot--home {
   top:1.35%;
+  left:.8%;
   display:flex;
   align-items:center;
-  padding:.34% .45%;
-  background:var(--pale)!important;
+  width:auto;
+  height:auto;
+  padding:.35% .55%;
+  background:transparent!important;
   filter:none!important;
   transform:none!important;
   box-shadow:none!important;
 }
-.screen--role .frame-hotspot--home { background:transparent!important; }
 .frame-hotspot--home span {
   position:static;
   display:inline-flex;
   align-items:center;
   gap:.42em;
   width:auto;
-  height:100%;
+  height:auto;
   margin:0;
   overflow:visible;
   clip:auto;
-  padding:0 .78em 0 .62em;
+  padding:0;
   color:#4e6ca8;
-  background:rgba(249,251,255,.96);
-  border:clamp(1px,.14vw,2px) solid #7188bb;
-  border-radius:2px;
-  box-shadow:clamp(2px,.2vw,3px) clamp(2px,.2vw,3px) 0 rgba(50,75,128,.2),inset 0 0 0 1px rgba(255,255,255,.9);
+  background:transparent!important;
+  border:0;
+  border-radius:0;
+  box-shadow:none!important;
   font-family:var(--font-body);
   font-size:clamp(9px,1.02vw,15px);
   font-weight:700;
   letter-spacing:-.025em;
   white-space:nowrap;
-  transition:transform 130ms ease,color 130ms ease,background-color 130ms ease,box-shadow 130ms ease;
+  transition:transform 130ms ease,color 130ms ease,text-shadow 130ms ease;
 }
 .frame-hotspot--home span b {
   color:#1597eb;
@@ -271,16 +273,15 @@ button.is-clicked:not(:disabled) { animation:button-click .16s ease-out; }
   line-height:1;
 }
 .frame-hotspot--home:not(:disabled):hover span {
-  color:#234d91;
-  background:#fff;
-  transform:translateY(-1px);
-  box-shadow:clamp(3px,.27vw,4px) clamp(3px,.27vw,4px) 0 rgba(38,66,124,.25),inset 0 0 0 1px rgba(255,255,255,.95);
+  color:#078cf2;
+  transform:translateX(-1px);
+  text-shadow:0 1px 0 rgba(255,255,255,.9);
 }
 .frame-hotspot--home:not(:disabled):active span,
 .frame-hotspot--home.is-clicked span {
-  transform:translate(1px,2px);
-  background:#edf3ff;
-  box-shadow:1px 1px 0 rgba(38,66,124,.23);
+  transform:translateX(1px);
+  color:#234d91;
+  text-shadow:none;
 }
 .frame-hotspot--home:focus-visible { outline:none; }
 .frame-hotspot--home:focus-visible span { outline:2px solid #1597eb; outline-offset:2px; }
