@@ -6,7 +6,7 @@
     <meta name="description" content="회의 속 선택으로 나의 커뮤니케이션 성향을 알아보는 SynQ 미니게임" />
     <meta name="theme-color" content="#e9edf8" />
     <title>회의에서 살아남기 | SynQ</title>
-    <link rel="stylesheet" href="./style.css?v=20260820-2" />
+    <link rel="stylesheet" href="./style.css?v=20260820-7" />
   </head>
   <body>
     <main class="game" id="game">
@@ -25,7 +25,7 @@
         <img class="figma-frame" src="./assets/figma-clean/001.png" alt="" />
         <img class="role-heading-art" src="./assets/figma/role-heading.svg" alt="" aria-hidden="true" />
         <h1 class="sr-only" id="role-title">어떤 역할로 회의에 참여하시나요?</h1>
-        <button class="frame-hotspot frame-hotspot--home" type="button" data-action="reset" aria-label="이전"><span aria-hidden="true"><b>‹</b> 이전</span></button>
+        <button class="frame-hotspot frame-hotspot--home" type="button" data-action="reset" aria-label="홈으로 돌아가기"><span>홈으로 돌아가기</span></button>
         <div class="role-grid">
           <button class="role-card art-button" type="button" data-role="planning"><img class="role-card-art" src="./assets/figma-2x/card-planning.svg" alt="" aria-hidden="true" /><span>기획 / 운영 역할 선택</span></button>
           <button class="role-card art-button" type="button" data-role="design"><img class="role-card-art" src="./assets/figma-2x/card-design.svg" alt="" aria-hidden="true" /><span>디자인 / 콘텐츠 역할 선택</span></button>
@@ -35,7 +35,7 @@
 
       <section class="screen screen--meeting" data-screen="briefing" hidden>
         <img class="figma-frame" id="briefing-art" src="./assets/figma-clean/002-a.png" alt="" />
-        <button class="frame-hotspot frame-hotspot--home" type="button" data-action="roles" aria-label="이전"><span aria-hidden="true"><b>‹</b> 이전</span></button>
+        <button class="frame-hotspot frame-hotspot--home" type="button" data-action="reset" aria-label="홈으로 돌아가기"><span>홈으로 돌아가기</span></button>
         <article class="sr-only">
           <p class="mission-label" id="mission-label"></p>
           <h1 id="briefing-title"></h1>
@@ -52,7 +52,7 @@
         <img class="question-avatar-svg" id="question-avatar-svg" src="./assets/figma-2x/avatar-sales.svg" alt="" aria-hidden="true" />
         <img class="question-avatar-svg" id="question-avatar-secondary-svg" src="./assets/figma-2x/avatar-developer.svg" alt="" aria-hidden="true" />
         <img class="question-avatar-svg" id="question-avatar-tertiary-svg" src="./assets/figma-2x/avatar-developer.svg" alt="" aria-hidden="true" />
-        <button class="frame-hotspot frame-hotspot--home" type="button" data-action="roles" aria-label="이전"><span aria-hidden="true"><b>‹</b> 이전</span></button>
+        <button class="frame-hotspot frame-hotspot--home" type="button" data-action="reset" aria-label="홈으로 돌아가기"><span>홈으로 돌아가기</span></button>
         <article class="sr-only">
           <header class="question-header"><p id="question-heading"></p><strong id="question-count"></strong></header>
           <div class="chat" id="chat"></div>
@@ -116,6 +116,6 @@
       </section>
     </main>
     <script src="./assets/lottie.min.js"></script>
-    <script src="./app.js?v=20260820-2"></script>
+    <script src="./app.js?v=20260820-7"></script>
   </body>
 </html>
